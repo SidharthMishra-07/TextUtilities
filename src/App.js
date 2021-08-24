@@ -10,19 +10,20 @@ function App() {
   const toggleMode=()=>{
     if(Mode === 'light'){
       setMode('dark');
+      document.body.style.backgroundColor='#15181a';
     }
     else{
       setMode('light');
+      document.body.style.backgroundColor='white';
     }
   }
   return (
     <>
     <Navbar title="TextUtils" mode={Mode} toggle={toggleMode}/>   {/*AboutText was set in default props */}
     <div className="container my-3">
-        <TextForm heading="Enter the text to analyze"/>
+        <TextForm heading="Enter the text to analyze" mode={Mode}/>
     </div>
     <hr />
-    <About/>
 
 
     </>
