@@ -4,14 +4,17 @@ import PropTypes from 'prop-types'
 export default function TextForm(props) {
     const handleUppercase =()=>{
         setText(text.toUpperCase());
+        props.showAlert("Converted to uppercase","success");
     }
     const handleLowercase =()=>{
         setText(text.toLowerCase());
+        props.showAlert("Converted to lowercase","success");
     }
     const handleCopy =()=>{
         var text = document.getElementById("myText");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text Copied!","success");
     }
     const handleExtraSpaces =()=>{
         let newText = text.split(/[ ]+/)
