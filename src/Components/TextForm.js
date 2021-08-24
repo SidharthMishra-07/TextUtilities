@@ -14,11 +14,12 @@ export default function TextForm(props) {
         var text = document.getElementById("myText");
         text.select();
         navigator.clipboard.writeText(text.value);
-        props.showAlert("Text Copied!","success");
+        props.showAlert("Text copied to clipboard","success");
     }
     const handleExtraSpaces =()=>{
         let newText = text.split(/[ ]+/)
         setText(newText.join(" "));
+        props.showAlert("Extra spaces removed","success");
     }
     const handleOnchange=(event) =>{
         console.log("On Change");
@@ -41,7 +42,7 @@ export default function TextForm(props) {
         </div>
         <div className="container my-4" style={{color: props.mode==='dark'?'white':'#15181a'}}>
             <h2>Word Count </h2>
-            <p>{text.split(" ").length} words and {text.length} characters</p>
+            <p>{text.split(' ').filter(function(n){return n!=''}).length} words and {text.length} characters</p>
             
         </div>
         </> 
