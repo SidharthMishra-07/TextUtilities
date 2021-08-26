@@ -4,6 +4,12 @@ import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import Alert from './Components/Alert';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   const [Mode, setMode] = useState('light') //Whether dark mode is available or not
@@ -23,22 +29,31 @@ function App() {
     if(Mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor='#15181a';
+      document.title = "TextUtils-Dark Mode";
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
+      document.title = "TextUtils";
     }
   }
   return (
     <>
+    <Router>
     <Navbar title="TextUtils" mode={Mode} toggle={toggleMode}/>   {/*AboutText was set in default props */}
     <Alert alert={alert}/>
     <div className="container my-3">
-        <TextForm showAlert={ShowAlert} heading="Enter the text to analyze" mode={Mode}/>
+    <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <TextForm showAlert={ShowAlert} heading="Enter the text to analyze" mode={Mode}/>
+          </Route>
+    </Switch>     
     </div>
-    <hr />
 
-
+    </Router>
     </>
   );
 }
