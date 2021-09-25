@@ -35,10 +35,10 @@ export default function TextForm(props) {
             <div className="mb-3">
                 <textarea value = {text} onChange={handleOnchange} style={{backgroundColor: props.mode==='dark'?'#15181a':'white', color: props.mode==='dark'?'white':'#15181a'}} className="form-control" id="myText" rows="8"></textarea>
             </div>
-            <button className="btn btn-primary mx-2" onClick={handleUppercase}>Capitalize Text</button>
-            <button className="btn btn-primary mx-2" onClick={handleLowercase}>LowerCase Text</button>
-            <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-            <button className="btn btn-success mx-2" onClick={handleCopy}>Copy Text</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleUppercase}>Capitalize Text</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleLowercase}>LowerCase Text</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+            <button className="btn btn-success mx-2 my-2" onClick={handleCopy}>Copy Text</button>
         </div>
         <div className="container my-4" style={{color: props.mode==='dark'?'white':'#15181a'}}>
             <h2>Word Count </h2>
