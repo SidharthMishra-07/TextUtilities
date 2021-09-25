@@ -29,7 +29,7 @@ function App() {
     if(Mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor='#15181a';
-      document.title = "TextUtils-Dark Mode";
+      // document.title = "TextUtils-Dark Mode";
     }
     else{
       setMode('light');
